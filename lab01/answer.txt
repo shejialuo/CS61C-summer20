@@ -1,0 +1,4 @@
+1. Because it just reads the value outside the stack
+   It doesn't write the memory outside the stack.
+2. Because the value outside the stack is undetermined.
+3. Should use sizeof(a) / sizeof(int)

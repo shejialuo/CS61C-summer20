@@ -1,9 +1,9 @@
-1.
-2.
-3.
-4.
-5.
-6.
-7.
-8.
-9.
+1. set args
+2. breakpoint <address> <function>
+3. next
+4. step
+5. continue
+6. print
+7. display
+8. info locals
+9. quit
