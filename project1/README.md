@@ -1,3 +1,8 @@
-# su20-proj1-starter
+# Project 1
 
-Please add a description about what you created! Also add lessons you learned or bugs you encountered. 
+I have learned:
+
++ The hash with bucket in action.
++ More familiar with I/O
+
+However, it is boring to copy with string.

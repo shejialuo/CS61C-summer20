@@ -35,7 +35,7 @@ HashTable *dictionary;
 
 /*
  * The MAIN routine.  You can safely print debugging information
- * to standard error (stderr) as shown and it will be ignored in 
+ * to standard error (stderr) as shown and it will be ignored in
  * the grading process.
  */
 int main(int argc, char **argv) {
@@ -65,22 +65,28 @@ int main(int argc, char **argv) {
 
 /*
  * This should hash a string to a bucket index.  Void *s can be safely cast
- * to a char * (null terminated string) and is already done for you here 
+ * to a char * (null terminated string) and is already done for you here
  * for convenience.
  */
 unsigned int stringHash(void *s) {
   char *string = (char *)s;
-  // -- TODO --
+  unsigned int hash = 5381;
+  char c;
+  while((c = *string++)) {
+    hash = ((hash << 5) + hash) + c;
+  }
+  return hash % 2255;
 }
 
 /*
- * This should return a nonzero value if the two strings are identical 
+ * This should return a nonzero value if the two strings are identical
  * (case sensitive comparison) and 0 otherwise.
  */
 int stringEquals(void *s1, void *s2) {
   char *string1 = (char *)s1;
   char *string2 = (char *)s2;
-  // -- TODO --
+  while(*string1 != 0 && *string1++ == *string2++) ;
+  return *string1 < * string2 ? -1 : *string1 > *string2;
 }
 
 /*
@@ -100,14 +106,51 @@ int stringEquals(void *s1, void *s2) {
  * arbitrarily long dictionary chacaters.
  */
 void readDictionary(char *dictName) {
-  // -- TODO --
+  FILE *file = fopen(dictName, "r");
+  if(file == NULL) {
+    fprintf(stderr, "Open %s error", dictName);
+    exit(1);
+  }
+  char buf[1024];
+  while(fgets(buf, 1024, file)) {
+    buf[strlen(buf) - 1] = '\0';
+    char* dict = malloc(strlen(buf) + 1);
+    strcpy(dict, buf);
+    insertData(dictionary, (void*)dict, (void*)dict);
+  }
+
+  fclose(file);
+}
+
+static int findInDict(char* str) {
+  char str1[strlen(str) + 1];
+  char str2[strlen(str) + 1];
+  for(int i = 0; str[i] != '\0'; ++i) {
+    if(isupper(str[i]))
+      str1[i] = str[i] + 'a' - 'A';
+    else
+      str1[i] = str[i];
+  }
+  str1[strlen(str)] = '\0';
+
+  str2[0] = str[0];
+  for(int i = 1; str1[i] != '\0'; ++i) {
+      str2[i] = str1[i];
+  }
+  str2[strlen(str)] = '\0';
+
+  if(findData(dictionary, (void*)str)  ||
+     findData(dictionary, (void*)str1) ||
+     findData(dictionary, (void*)str2))
+     return 1;
+  else return 0;
 }
 
 /*
  * This should process standard input (stdin) and copy it to standard
- * output (stdout) as specified in the spec (e.g., if a standard 
- * dictionary was used and the string "this is a taest of  this-proGram" 
- * was given to stdin, the output to stdout should be 
+ * output (stdout) as specified in the spec (e.g., if a standard
+ * dictionary was used and the string "this is a taest of  this-proGram"
+ * was given to stdin, the output to stdout should be
  * "this is a teast [sic] of  this-proGram").  All words should be checked
  * against the dictionary as they are input, then with all but the first
  * letter converted to lowercase, and finally with all letters converted
@@ -121,9 +164,36 @@ void readDictionary(char *dictName) {
  *
  * Do note that even under the initial assumption that no word is longer than 60
  * characters, you may still encounter strings of non-alphabetic characters (e.g.,
- * numbers and punctuation) which are longer than 60 characters. Again, for the 
+ * numbers and punctuation) which are longer than 60 characters. Again, for the
  * final 20% of your grade, you cannot assume words have a bounded length.
  */
 void processInput() {
-  // -- TODO --
+  char buf[1024];
+  int index = 0;
+  char c = fgetc(stdin);
+  while(c != EOF) {
+    if(!isalpha(c)) {
+      if(index != 0) {
+        buf[index] = '\0';
+        if(findInDict(buf)) {
+          printf("%s", buf);
+        } else {
+          printf("%s [sic]",buf);
+        }
+        index = 0;
+      }
+      printf("%c", c);
+    } else {
+      buf[index++] = c;
+    }
+    c = fgetc(stdin);
+  }
+  if(index != 0) {
+    buf[index] = '\0';
+    if(findInDict(buf)) {
+      printf("%s", buf);
+    } else {
+      printf("%s [sic]",buf);
+    }
+  }
 }
