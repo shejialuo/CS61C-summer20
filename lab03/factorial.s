@@ -21,4 +21,14 @@ main:
     ecall # Exit
 
 factorial:
-    # YOUR CODE HERE
+    add t0, x0, x0
+    add t1, x0, x0
+    addi t0, a0, 0
+    addi t1, x0, 1
+  loop:
+    mul t1, t1, t0
+    addi t0, t0, -1
+    bne t0, x0, loop
+    add a0, x0, x0
+    add a0, t1, x0
+    jr ra
