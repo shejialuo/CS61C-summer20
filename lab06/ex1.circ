@@ -273,6 +273,32 @@ end TCL_Generic;
     <a name="clabelfont" val="SansSerif bold 16"/>
     <a name="circuitnamedbox" val="true"/>
     <a name="circuitvhdlpath" val=""/>
+    <wire from="(300,110)" to="(300,180)"/>
+    <wire from="(630,130)" to="(680,130)"/>
+    <wire from="(200,90)" to="(200,100)"/>
+    <wire from="(410,140)" to="(410,280)"/>
+    <wire from="(190,120)" to="(240,120)"/>
+    <wire from="(750,210)" to="(750,280)"/>
+    <wire from="(290,210)" to="(290,220)"/>
+    <wire from="(460,130)" to="(630,130)"/>
+    <wire from="(710,210)" to="(750,210)"/>
+    <wire from="(630,130)" to="(630,210)"/>
+    <wire from="(200,100)" to="(240,100)"/>
+    <wire from="(250,210)" to="(290,210)"/>
+    <wire from="(190,120)" to="(190,150)"/>
+    <wire from="(380,120)" to="(420,120)"/>
+    <wire from="(170,90)" to="(200,90)"/>
+    <wire from="(630,210)" to="(650,210)"/>
+    <wire from="(290,220)" to="(320,220)"/>
+    <wire from="(280,110)" to="(300,110)"/>
+    <wire from="(300,180)" to="(320,180)"/>
+    <wire from="(410,280)" to="(750,280)"/>
+    <wire from="(250,210)" to="(250,250)"/>
+    <wire from="(170,150)" to="(190,150)"/>
+    <wire from="(410,140)" to="(420,140)"/>
+    <wire from="(170,210)" to="(250,210)"/>
+    <wire from="(250,250)" to="(650,250)"/>
+    <wire from="(380,120)" to="(380,180)"/>
     <comp lib="0" loc="(170,90)" name="Pin">
       <a name="width" val="8"/>
       <a name="label" val="in1"/>
@@ -284,12 +310,16 @@ end TCL_Generic;
     <comp lib="0" loc="(170,210)" name="Pin">
       <a name="label" val="CLK"/>
     </comp>
-    <comp lib="0" loc="(560,130)" name="Pin">
+    <comp lib="3" loc="(280,110)" name="Multiplier"/>
+    <comp lib="4" loc="(320,150)" name="Register"/>
+    <comp lib="0" loc="(680,130)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
       <a name="width" val="8"/>
       <a name="label" val="out1"/>
       <a name="labelloc" val="east"/>
     </comp>
+    <comp lib="4" loc="(650,180)" name="Register"/>
+    <comp lib="3" loc="(460,130)" name="Adder"/>
   </circuit>
 </project>
