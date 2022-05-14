@@ -11,3 +11,7 @@ two signed number, the low 32 bit is the same. But we want to finish the
 functionality of `mulh`. So we need to first convert the signed number to
 unsigned number. And product the two converted unsigned numbers and last
 we need to convert the production to signed number.
++ Register file part: It is simple to construct a register file. We need two
+multiplexors to determine the register we want to read. And for writing, we
+should use a demultiplexor to determine which register to write
+
