@@ -131,8 +131,8 @@
       <text fill="#404040" font-family="Dialog" font-size="12" text-anchor="start" x="46" y="175">B</text>
       <text fill="#404040" font-family="Dialog" font-size="12" text-anchor="start" x="70" y="165">ALUSel</text>
       <text fill="#404040" font-family="Dialog" font-size="12" text-anchor="end" x="114" y="114">Result</text>
-      <circ-port height="8" pin="200,310" width="8" x="86" y="176"/>
       <circ-port height="10" pin="1180,240" width="10" x="115" y="105"/>
+      <circ-port height="8" pin="200,310" width="8" x="86" y="176"/>
       <circ-port height="8" pin="200,250" width="8" x="36" y="166"/>
       <polygon fill="none" points="40,20 120,70 120,160 40,210 40,130 60,115 40,100" stroke="#000000" stroke-width="2"/>
       <circ-port height="8" pin="200,160" width="8" x="36" y="56"/>
@@ -293,6 +293,7 @@
     <wire from="(570,660)" to="(570,680)"/>
     <wire from="(900,380)" to="(900,460)"/>
     <wire from="(870,230)" to="(980,230)"/>
+    <wire from="(690,1530)" to="(710,1530)"/>
     <wire from="(200,160)" to="(220,160)"/>
     <wire from="(560,200)" to="(630,200)"/>
     <wire from="(560,280)" to="(630,280)"/>
@@ -308,6 +309,7 @@
     <wire from="(410,1670)" to="(460,1670)"/>
     <wire from="(980,310)" to="(1040,310)"/>
     <wire from="(620,1430)" to="(620,1520)"/>
+    <wire from="(740,1530)" to="(780,1530)"/>
     <wire from="(970,500)" to="(970,590)"/>
     <wire from="(810,1670)" to="(810,1690)"/>
     <wire from="(900,790)" to="(1010,790)"/>

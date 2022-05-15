@@ -15,3 +15,8 @@ we need to convert the production to signed number.
 multiplexors to determine the register we want to read. And for writing, we
 should use a demultiplexor to determine which register to write
 
+For making a full CPU, it is tedious to make a control unit. The datapath is easy,
+so I avoid the part b, it's not interesting. You should know, don't pay too much
+attention to circuit.
+
+I think part a is fully enough to understand how CPU works.
