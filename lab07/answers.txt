@@ -1,42 +1,42 @@
 Exercise 1
 	Scenario 1
-		1. 
-		2.
-		3.
+		1. The hit rate is always zero, because the offset is a1 * 4 = 32, which
+       equals to cache size.
+		2. No. The inner loop matters in this situation
+		3. We could change a1 to 1, the hit rate will be 50%.
 
 	Scenario 2
-		1.
-		2.
-		3.
-		4.
-		5.
+		1. 2
+		2. Miss, Hit, Hit, Hit
+		3. 75%
+		4. Due to cool start, it could be 100%(nearly 100%)
+		5. Split the array equal to our cache size
 
 	Scenario 3
-		1.
-		2.
-		3.
-		4.
-		5.
+		1. 50%, 0%, 50%
+		2. 32, 16
+		3. 16
+		4. The block size of L2 cache. Increasing the block size of L2 will increase L2_HR.
 
 Exercise 2
-	ijk:
-	ikj:
-	jik:
-	jki:
-	kij:
-	kji:
+	ijk: 1.337 Gflop/s
+	ikj: 0.167 Gflop/s
+	jik: 1.021 Gflop/s
+	jki: 5.423 Gflop/s
+	kij: 0.173 Gflop/s
+	kji: 2.826 Gflop/s
 
-	1.
-	2.
-	3.
+	1. jki
+	2. Ikj
+	3. More stride means worse
 
 Exercise 3
 	Part 1
-		blocksize = 20, n = 100: 
-		blocksize = 20, n = 1000: 
-		blocksize = 20, n = 2000: 
-		blocksize = 20, n = 5000: 
-		blocksize = 20, n = 10000: 
+		blocksize = 20, n = 100:
+		blocksize = 20, n = 1000:
+		blocksize = 20, n = 2000:
+		blocksize = 20, n = 5000:
+		blocksize = 20, n = 10000:
 
 		1.
 		2.
